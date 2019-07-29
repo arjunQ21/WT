@@ -1,0 +1,45 @@
+@font-face {
+	font-family: Arjun ;
+	src: url("./ARJUN.TTF")  ;
+	/* font-weight: bold ; */
+}
+
+@font-face {
+	font-family: Devanagari ;
+	src: url("./Devnew.ttf") ;
+	/* font-weight: bold ; */
+}
+
+@font-face
+{
+	font-family: Preeti ;
+	src: url("./preeti.TTF")  ;
+	/* font-weight: bold ; */
+
+}
+@font-face
+{
+	font-family: Everest ;
+	src: url("everest.TTF")  ;
+	/* font-weight: bold ; */
+}
+
+@font-face
+{
+	font-family: Shusha ;
+	/* font-weight: bold ; */
+	src: url("./Shusha.ttf") ;
+}
+
+@font-face
+{
+	font-family: agra ;
+	src: url("./AGRA.TTF")  ;
+	/* font-weight: bold ; */
+}
+
+@font-face{
+	font-family: os ;
+	src: url("./OpenSans-Light.ttf");
+	/* font-weight: bold ; */
+}

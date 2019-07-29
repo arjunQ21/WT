@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Css Task</title>
+	<style type="text/css">
+		body{
+			font-family: Tahoma, Consolas;
+		}
+		.heading{
+			color: #555;
+			padding-left: 20px;
+		}
+		table.t1{
+			width: 100%;
+			margin-top: 30px ;
+		}
+		table.t1 td{
+			text-align: center ;
+		}
+		table.t1 td a{
+			font-weight: bold ;
+			padding: 7px 25px;
+			border-style: solid ;
+			border-width: 2px ;
+			text-decoration: none;
+			text-transform: capitalize;
+			font-size: 17px ;
+			letter-spacing: 1px ;
+		}
+		td a:hover{
+			color: white ;
+		}
+		a.red{
+			border-color: red ;
+			color: red;
+		}
+		a.red:hover{
+			background: red ;
+		}
+		a.blue{
+			border-color: blue ;
+			color: blue;
+		}
+		a.blue:hover{
+			background: blue ;
+		}
+		a.green{
+			border-color: green ;
+			color: green;
+		}
+		a.green:hover{
+			background: green ;
+		}		
+
+		/*Registration Form*/
+		table.t2{
+			width: 100%;
+		}
+		table.t2 tr td:nth-child(1){
+			text-align: right;
+			font-size: 15px;
+			font-family: sans-serif; ;
+		}
+		table.t2 td{
+			padding: 7px;
+		}
+		input[type='text'], input[type='email'], input[type='password']{
+			border: 0px;
+			border-bottom: 1px solid #aaa ;
+			padding: 4px 10px;
+		}
+		input[type='reset'], input[type='submit']{
+			font-family: Consolas ;
+			font-weight: bold ;
+			font-size: 17px ;
+		}
+		/*Login Form*/
+/*		div.tableCont{
+			min-width: 300px ;
+			border: 1px solid red ;
+			width: 50% ;
+
+		}
+		form{
+			display: flex ; 
+			align-items: center ;
+			justify-content: center ;
+		}*/
+	</style>
+</head>
+<body>
+
+<h2 class="heading">
+	Buttons
+</h2>
+
+<div class="buttons">
+	<table class='t1'>
+		<tr>
+			<td><a href="#" class='red'>Red</a></td>
+			<td><a href="#" class='green'>green</a></td>
+			<td><a href="#" class='blue'>blue</a></td>
+		</tr>
+	</table>
+</div>
+
+<hr style='margin: 20px 0px'>
+
+<h2 class="heading">Registration Form</h2>
+
+<div class="reg_form">
+	<form >
+		<div class="tableCont">
+		<table class='t2'>
+			<tr>
+				<td>Name</td>
+				<td>
+					<input type="Text" name="" placeholder="Enter your Name">
+				</td>
+			</tr>
+			<tr>
+				<td>Email</td>
+				<td>
+					<input type="email" name="" placeholder="Enter your email">
+				</td>
+			</tr>
+			<tr>
+				<td>Gender</td>
+				<td>
+					<input type="radio" name="gender" >Male
+					<input type="radio" name="gender" >Female 
+				</td>
+			</tr>
+			<tr>
+				<td>Age</td>
+				<td>
+					<input type="date" placeholder="Age"> Years
+				</td>
+			</tr>
+			<tr>
+				<td>Password</td>
+				<td>
+					<input type="password" name="" placeholder="Enter your password">
+				</td>
+			</tr>
+			<tr>
+				<td>Confirm Password</td>
+				<td>
+					<input type="password" name="" placeholder="Confirm Password">
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<input type="submit" value ='Register'>
+					<input type="reset" value ='Reset'>
+				</td>
+			</tr>
+		</table>
+	</div>
+	</form>
+</div>
+
+<hr style='margin: 20px 0px'>
+
+<h2 class="heading">Login Form</h2>
+
+<div class="login_form"></div>
+	<form >
+		<div class="tableCont">
+		<table class='t2'>
+			<tr>
+				<td>Email</td>
+				<td>
+					<input type="email" name="" placeholder="Enter your email">
+				</td>
+			</tr>
+			<tr>
+				<td>Password</td>
+				<td>
+					<input type="password" name="" placeholder="Enter your password">
+				</td>
+			</tr>
+			<tr>
+			<tr>
+				<td></td>
+				<td>
+					<input type="submit" value ='Login'>
+				</td>
+			</tr>
+		</table>
+		</div>
+	</form>
+</body>
+</html>
