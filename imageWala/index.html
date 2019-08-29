@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Image Task</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<div class="container">
+	<div class="controller">
+		<div class="left" onclick='previous() '>
+			&lt;
+		</div>
+		<div class="right" onclick = 'next() '>
+			&gt;
+		</div>
+	</div>
+	<div class="images">
+		<div class="image">
+			<!-- <img src="photo.jpg"> -->
+			<span>A</span>
+		</div>
+		<div class="image">
+			<!-- <img src="photo.jpg"> -->
+			<span>R</span>
+		</div>
+		<div class="image">
+			<!-- <img src="photo.jpg"> -->
+			<span>J</span>
+		</div>
+		<div class="image">
+			<!-- <img src="photo.jpg"> -->
+			<span>U</span>
+		</div>
+		<div class="image">
+			<!-- <img src="photo.jpg"> -->
+			<span>N</span>
+		</div>	 
+	</div>
+</div>
+<script type="text/javascript">
+	var imageDivs = document.querySelectorAll("div.images div") ;
+	var current = 0 ;
+	showAtIndex(current);
+	function showAtIndex( index ){
+		imageDivs.forEach(function(img, ind){
+			if(index == ind){
+				img.style.visibility = "visible" ;
+			}else{
+				img.style.visibility = 'hidden' ;
+			}
+		});
+	}
+	function previous(){
+		current-- ;
+		var ind = 0 ;
+		if(current < 0){
+			current += imageDivs.length  ;
+		}
+
+		showAtIndex(current % imageDivs.length) ;
+	}
+	function next(){
+		current++ ;
+		showAtIndex(current % imageDivs.length) ;
+	}
+</script>
+</body>
+</html>

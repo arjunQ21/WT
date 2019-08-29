@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tasks</title>
+</head>
+<body>
+Task Name: <input type="text" id = 'task'>
+			<input type="button" id='add' value = 'ADD'>
+			<ul> No Tasks Yet. </ul>
+			<ul class='completed'></ul>
+<script type="text/javascript">
+	var tasks = [] ;
+	var button = document.querySelector("#add") ;
+	var task = document.querySelector("#task") ;
+	var ul = document.querySelector("ul") ;
+	var completedUl = document.querySelector("ul.completed") ;
+	button.onclick = function(){
+		tasks.push({name: task.value, isComplete: false }) ;
+		task.value = "";
+		console.log(tasks);
+		render() ;
+	}
+	function makeComplete( task1 ){
+		task1.isComplete = true ;
+	}
+	function render(){
+		var completed = " Completed Tasks: ";
+		var incomplete = "Incomplete Tasks: " ;
+		tasks.forEach(function(t){
+			if(t.isComplete){
+				completed += "<li>" + t.name + "</li>" ;
+			}else{
+				incomplete += "<li>" + t.name + "</li>" ;
+			}
+		})
+		ul.innerHTML = incomplete ;
+		completedUl.innerHTML = completed ;
+	}
+</script>			
+</body>
+</html>

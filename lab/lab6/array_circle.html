@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Array</title>
+</head>
+<body>
+<script>
+	
+	var items = ['a', 'b','c','d','e'] ;
+	function next(){
+		items.unshift(items.pop());
+		console.log(items);
+	}
+	function prev(){
+		items.push(items.shift()) ;
+		console.log(items);
+	}
+
+</script>
+</body>
+</html>

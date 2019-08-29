@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>circles</title>
+</head>
+<body>
+<script type="text/javascript">
+	var circle = {
+		radius: 0,
+		area : function(){
+			return this.radius * this.radius * 3.14 ;
+		},
+		perimeter: function(){
+			return this.radius * 2 * 3.14 ;
+		}
+	}
+	circle.radius = 8 ;
+	console.log("circle area: " + circle.area());
+	console.log("circle perimeter: " + circle.perimeter());
+	var square = {
+		side: 0,
+		area : function(){
+			return this.side * this.side ;
+		},
+		perimeter: function(){
+			return this.side * 4 ;
+		}
+	}
+	square.side = 8 ;
+	console.log("square area: " + square.area());
+	console.log("square perimeter: " + square.perimeter() );	
+</script>
+</body>
+</html>
