@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tasks</title>
+</head>
+<body>
+<style type="text/css">	
+	body{
+		margin: 0px;
+		padding: 0px;
+		background: cadetblue;
+		color: #fff ;
+		font-size: 120% ;
+		font-weight: bold ;
+		font-family: Tahoma ;
+	}
+	div.input{
+		/*margin: auto ;*/
+		display: flex ;
+		align-items: center ;
+		justify-content: space-around; ;
+		margin: 10px 0px;
+	}
+	div.input *{
+		display: block;
+	}
+	input#task{
+		padding: 10px ;
+		width: 55% ;
+		font-weight: bold ;
+		font-size: 120% ;
+		color: #666;
+	}
+	input#add{
+		padding: 10px 20px;
+		font-size: 120% ;
+		font-weight: bold ;
+	}
+	ul li{
+		list-style: none;
+		margin: 10px 0px;
+		letter-spacing: 2px ;
+		background: rgba(0,0,0,0.3);
+		padding: 10px 20px;
+		color: lightsteelblue;
+		border-radius: 10px;
+	}
+	ul{
+		width: 80% ;
+		display: block;
+		margin: auto ;
+		margin: 10px 0;
+	}
+	ul.completed li{
+		color: gray;
+	}
+	input[type='checkbox']{
+		margin-right: 20px;
+	}
+</style>
+<div class="input">
+<span>Task Name: </span><input type="text" id = 'task'>
+			<input type="button" id='add' value = 'ADD'>
+</div>
+			<ul> No Tasks Yet. </ul>
+			<ul class='completed'></ul>
+<script type="text/javascript">
+	var tasks = [] ;
+	var button = document.querySelector("#add") ;
+	var task = document.querySelector("#task") ;
+	var ul = document.querySelector("ul") ;
+	var completedUl = document.querySelector("ul.completed") ;
+	button.onclick = function(){
+		if(task.value){
+			tasks.push({name: task.value, isComplete: false }) ;
+			task.value = "";
+			console.log(tasks);
+			render() ;
+		}
+	}
+	function makeComplete( task1 ){
+		task1.isComplete = true ;
+	}
+	function render(){
+		var completed = " Completed : ";
+		var incomplete = "Incomplete : " ;
+		tasks.forEach(function(t, ind){
+			if(t.isComplete){
+				completed += "<li>" + t.name + "</li>" ;
+			}else{
+				incomplete += "<li><input type='checkbox' onclick = 'makeComplete(tasks["+ ind + "]); render() ;' >" + t.name + "</li>" ;
+			}
+		})
+		ul.innerHTML = incomplete ;
+		completedUl.innerHTML = completed ;
+	}
+</script>			
+</body>
+</html>
