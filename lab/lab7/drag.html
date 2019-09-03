@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Drag</title>
+</head>
+<body>
+	<style type="text/css">
+		body{
+			margin: 0px;
+			padding: 0px;
+			height: 100vh ;
+			font-family: Tahoma ;
+		}
+		div.cont{
+			height: 100% ;
+			width: 100% ;
+			position: relative;
+			background: rgba(0,0,0,0.1); 
+		}
+		span{
+			position: absolute;
+			top: 10px;
+			padding: 5px 10px;
+			background: rgba(0,0,0,0.2);
+			color: #fff;
+			font-weight: bold ;
+			font-size: 120% ;
+			border: 1px solid gray;
+		}
+	</style>
+<div class="cont">
+	<span>content</span>
+	<span>content</span>
+	<span>content</span>
+	<span>content</span>
+	<span>content</span>
+</div>
+<script type="text/javascript">
+	var marginLeft = 30 ;
+	var count = 0;
+	var spans = document.querySelectorAll("span") ;
+	var elem ;
+	var isDown = 0 ;
+	spans.forEach( function(s){
+		s.style.left =  count++ * (marginLeft + s.offsetWidth) + "px" ;
+		s.addEventListener("mousedown", function(){
+			elem = s ;
+			isDown = 1 ;
+		})
+	})
+	document.addEventListener("mousemove", function(e){
+		if(isDown && elem){
+			elem.style.top = e.clientY + "px" ;
+			elem.style.left = e.clientX + "px" ;
+		}
+	})
+	document.addEventListener("mouseup", function(){
+		elem = null ;
+		isDown = 0 ;
+	})
+</script>
+</body>
+</html>
