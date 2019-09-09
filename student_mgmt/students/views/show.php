@@ -1,30 +1,19 @@
 <?php 
-//php code copied from edit.php
-$hasId = 0 ;
 $id = 0 ;
-// if id is supplied from query string
-if(isset($_GET['id'])){
-	// if id is not null, i.e, has some values
-	if($_GET['id']){
-		//if id is some digit
-		if(is_numeric($_GET['id'])){
-			$hasId = 1 ;
-			$id = $_GET['id'] ;
-		}
-	}
+//if id is some digit
+if(is_numeric($_GET['id'])){
+	$id = $_GET['id'] ;
 }
-if(! $hasId){
-	die("Please give some valid numeric id to show details. Pass id from Query String.(..?id=5)") ;
+//if the given id from query string is not a digit, we end the script right here.
+if(! $id ){
+	die("Please give some valid numeric id to show details for. Pass id from Query String.(..?id=5)") ;
 }
 
-//Making dummy data for showing data
-$details = 	[	
-		'id' => 5,
-		'name' => "Arjun",
-		'roll' => 11,
-		'address' => "Pokhara",
-		'phone' => '989898',
-	] ;
+require_once "../../mysqli/connection.php" ;
+
+// to show previous data of students in input fields, we populate the $previous array, and put the values inside this array in input fiels' value attributes.
+$detailsInDB = mysqli_query($connection, "SELECT * FROM students WHERE id = ". $id ) ;
+$details = mysqli_fetch_assoc($detailsInDB) ;
 
 ?>
 <!DOCTYPE html>
@@ -37,6 +26,7 @@ $details = 	[
 <div class="home">
 	<a href="./">All Students</a>
 	<a href="./create.php">Create New</a>
+	<a href='./edit.php?id=<?= $id ?>'>Edit this student </a>
 </div>
 <div class="cont">
 	<h2 class="headText">Details of Student with id <?php echo $id; ?></h2>

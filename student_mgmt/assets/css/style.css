@@ -84,10 +84,12 @@ table.sec_details tr td:nth-child(2){
 	text-align: left ;
 }
 div.home{
-	position: fixed;
-	top: 10px;
-	left: 10px;
+	/*position: fixed;*/
+/*	top: 10px;
+	left: 10px;*/
+	background: rgba(0,0,0,0.1) ;
+	padding: 10px ;
 }
 div.home a:hover{
-	background: rgba(0,0,0,0.1);
+	background: rgba(0,0,0,0.2);
 }

@@ -1,29 +1,29 @@
 <?php 
-$hasId = 0 ;
 $id = 0 ;
-// if id is supplied from query string
-if(isset($_GET['id'])){
-	// if id is not null, i.e, has some values
-	if($_GET['id']){
-		//if id is some digit
-		if(is_numeric($_GET['id'])){
-			$hasId = 1 ;
-			$id = $_GET['id'] ;
-		}
-	}
+//if id is some digit
+if(is_numeric($_GET['id'])){
+	$id = $_GET['id'] ;
 }
-if(! $hasId){
+//if the given id from query string is not a digit, we end the script right here.
+if(! $id ){
 	die("Please give some valid numeric id to edit. Pass id from Query String.(..?id=5)") ;
 }
 
-//Making dummy data for showing previous data in input fields
-$previous = 	[	
-		'id' => 5,
-		'name' => "Arjun",
-		'roll' => 11,
-		'address' => "Pokhara",
-		'phone' => '989898',
-	] ;
+require_once "../../mysqli/connection.php" ;
+
+//for deleting the user
+if(isset($_GET['delete'])){
+	// if the value of delete is not empty
+	if($_GET['delete'] == 1){
+		mysqli_query($connection, "DELETE FROM students WHERE id = $id") ;
+		header("Location: index.php") ;
+	}
+}
+
+// to show previous data of students in input fields, we populate the $previous array, and put the values inside this array in input fiels' value attributes.
+$previousDataResult = mysqli_query($connection, "SELECT * FROM students WHERE id = ". $id ) ;
+$previous = mysqli_fetch_assoc($previousDataResult) ;
+
 
 ?>
 <!DOCTYPE html>
@@ -37,11 +37,18 @@ $previous = 	[
 	<a href="./">All Students</a>
 	<a href="./create.php">Create New</a>
 </div>
+<p>
+	<?php 
+		if(isset($_GET['message'])){
+			echo $_GET['message'] ;
+		}
+	?>
+</p>
 <div class="cont">
 	<h2 class="headText">
 		Edit info of student with id = <?= $id ?>
 	</h2>
-	<form action='edit.php'>
+	<form action='../action/edit.php' method = "POST">
 		<table class='twoCols'>
 			<tr>
 				<td>Name:</td>

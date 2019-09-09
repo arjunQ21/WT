@@ -12,7 +12,7 @@ $result = mysqli_query($connection, $sql) ;
 //mysqli_fetch_all gives us an associative array of sql output
 // and we store it in $assocArray array variable
 $assocArray = mysqli_fetch_all( $result, MYSQLI_ASSOC) ;
-// var_dump($assocArray) ;
+// print_r($assocArray) ;
 // die() ;
 
 
@@ -70,7 +70,8 @@ $assocArray = mysqli_fetch_all( $result, MYSQLI_ASSOC) ;
 				<td><?= $data['phone']?></td>
 				<td>
 					<a href="edit.php?id=<?= $data['id']?>">Edit</a>
-					<a href="edit.php?id=<?= $data['id']?>&delete=1">Delete</a>
+					<a href="edit.php?id=<?= $data['id']?>&delete=1" style='background: rgba(255, 0,0,0.2)'>Delete</a>
+					<a href="show.php?id=<?= $data['id']?>">Details</a>
 				</td>
 			</tr>
 			<!-- ending foreach  with '}' -->
