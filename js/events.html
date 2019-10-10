@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Events</title>
+</head>
+<body>
+	<style type="text/css">
+		div{
+			padding: 20px;
+			border: 1px solid rgba(0,0,0,0.5);
+			border-radius: 20px ;
+		}
+	</style>
+
+	<div id = 'a'>
+		<div id = 'b'>
+			<div id = 'c'>
+				<div id = 'd'>
+					<div id = 'e'>
+						<div id = 'f'>
+							<div id = 'g'>
+								<div id = 'h'>
+									<div id = 'i'>
+										<div id = 'j'>
+											<div id = 'k'>
+												<div id = 'l'>
+													<div id = 'm'>
+														<div id = 'n'>
+															<div id = 'o'>
+																<div id = 'p'>
+																	<div id = 'q'>
+																		<div id = 'r'>
+																			<div id = 's'>
+																				<div id = 't'>
+																					<div id = 'u'>
+																						<div id = 'v'>
+																							<span>Event Bubbling and Capturing</span>
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<script> 
+	var bg = "rgba(0,0,0,0.1)" ;
+	var elems = document.querySelectorAll("div, span") ;
+	elems.forEach(function(ele){
+		ele.addEventListener("click", function(e){
+			var bgC = e.currentTarget.style.backgroundColor ;
+			e.currentTarget.style.backgroundColor = ( bgC == bg ? "white" : bg ) ;
+			console.log(e.currentTarget);
+			// e.stopPropagation() ;
+		}, false)
+	})
+</script>
+</body>
+</html>

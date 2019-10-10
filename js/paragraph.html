@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Paragraph</title>
+</head>
+<body>
+<p id='i1' onclick="clicked('i1')">one</p>
+<p id='i2' onclick="clicked('i2')">two</p>
+<p id='i3' onclick="clicked('i3')">three</p>
+<p id='i4' onclick="clicked('i4')">four</p>
+<p id='i5' onclick="clicked('i5')">five</p>
+<script >
+	function clicked( idOfParagraph ){
+		var text = document.getElementById( idOfParagraph ).textContent ;
+		alert(text);
+	}
+</script>
+</body>
+</html>

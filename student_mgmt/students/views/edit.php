@@ -16,14 +16,13 @@ if(isset($_GET['delete'])){
 	// if the value of delete is not empty
 	if($_GET['delete'] == 1){
 		mysqli_query($connection, "DELETE FROM students WHERE id = $id") ;
-		header("Location: index.php") ;
+		header("Location: index.php?message=Deleted user with id: $id") ;
 	}
 }
 
-// to show previous data of students in input fields, we populate the $previous array, and put the values inside this array in input fiels' value attributes.
+// to show previous data of students in input fields, we populate the $previous array, and put the values inside this array in input fields' value attributes.
 $previousDataResult = mysqli_query($connection, "SELECT * FROM students WHERE id = ". $id ) ;
 $previous = mysqli_fetch_assoc($previousDataResult) ;
-
 
 ?>
 <!DOCTYPE html>

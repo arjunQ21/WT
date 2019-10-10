@@ -11,9 +11,9 @@ if(! $id ){
 
 require_once "../../mysqli/connection.php" ;
 
-// to show previous data of students in input fields, we populate the $previous array, and put the values inside this array in input fiels' value attributes.
+// to show previous data of students in input fields, we populate the $previous array, and put the values inside this array in input fields' value attributes.
 $detailsInDB = mysqli_query($connection, "SELECT * FROM students WHERE id = ". $id ) ;
-$details = mysqli_fetch_assoc($detailsInDB) ;
+$details = mysqli_fetch_assoc( $detailsInDB ) ;
 
 ?>
 <!DOCTYPE html>

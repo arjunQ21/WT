@@ -24,26 +24,16 @@ $assocArray = mysqli_fetch_all( $result, MYSQLI_ASSOC) ;
 	<link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
 </head>
 <body>
-<?php 
-//Making dummy data
-// $singleData = [
-// 		'id' => 21,
-// 		'name' => "Arjun",
-// 		'roll' => 11,
-// 		'address' => "Pokhara",
-// 		'phone' => '989898',
-// 	] ;
-
-// $dummy = [];
-
-// for($i = 0 ; $i < 20; $i++){	
-// 	array_push($dummy, $singleData);
-// }
- 
-?>
 <div class="home">
 	<a href="./create.php">Create New</a>
 </div>
+<p>
+	<?php 
+		if(isset($_GET['message'])){
+			echo $_GET['message'] ;
+		}
+	?>	
+</p>
 <div class="cont">
 	<h2 class='headText'>Students' List</h2>
 	<br>
@@ -76,7 +66,6 @@ $assocArray = mysqli_fetch_all( $result, MYSQLI_ASSOC) ;
 			</tr>
 			<!-- ending foreach  with '}' -->
 		<?php } ?>
-		
 	</table>
 </div>
 <script type="text/javascript" src = "../../assets/js/script.js"></script>
