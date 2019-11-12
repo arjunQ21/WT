@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form validation example</title>
+</head>
+<body>
+<form action="#" style='margin: auto ; width: 200px'>
+	Name: <input type="text" id='name'> <br><br>
+	Email: <input type="text" id = 'email'><br><br>
+	<input type="submit" >
+</form>
+<script type="text/javascript">
+	var form = document.getElementsByTagName("form")[0] ;
+	form.addEventListener("submit", function(e){
+		var invalid = 0 ;
+		var name = document.getElementById("name").value ;
+		var email = document.getElementById("email").value ;
+		// checking for empty value
+		if(!(name && email)){
+			invalid = 1 ;
+			alert("empty") ;
+		}
+		// checking for correct format of email
+		var emailRegexp = /[a-zA-Z0-9_.-]+@[a-z0-9-]+\.[a-z.]+/ ;
+		if(match = email.match(emailRegexp)){
+			if(match[0] != email){
+				invalid = 1 ;
+				alert("Invalid email") ;
+			}
+		}else{
+			invalid = 1 ;
+			alert("invalid email ") ;
+		}
+		if(invalid){
+			e.preventDefault() ;
+		}else{
+			alert("Data is good. Form will be submitted.") ;
+		}
+	});
+</script>
+</body>
+</html>
