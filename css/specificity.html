@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Css Specificity</title>
+</head>
+<body>
+<style type="text/css">
+p{
+	background: rgba(0,255,0,0.2) ;
+	padding: 10px;
+	border: 1px solid #bbb;
+}
+p.colored{
+	background: rgba(0,255,0,0.4) ;
+}
+p[title=titled]{
+	background: rgba(0,255,0,0.6) ;
+}
+p#pwithid{
+	background: rgba(0,255,0,0.8);
+}
+</style>
+
+
+<p>I am a paragraph</p>
+<p class="colored">I am a classed paragraph</p>
+<p class="colored" title='titled'>I am titled paragraph</p>
+<p class="colored" tilte='titled' id='pwithid'>I have ID</p>
+<p class="colored" tilte='titled' id='pwithid' style='background: rgba(0,255, 0, 1);'>Inline style</p>
+</body>
+</html>

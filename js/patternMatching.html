@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pattern Matching</title>
+</head>
+<body>
+	Email: <input type="text" name="email"><br><br>
+	Name: <input type="text" name="name"><br><br>
+	Password: <input type="text" name="password"><br><br>
+	<button onclick="checkPattern();">Check Pattern</button>
+<script type="text/javascript">
+	function checkPattern(){
+		var email = document.querySelector("input[name=email]").value ;
+		var name = document.querySelector("input[name=name]").value ;
+		var password = document.querySelector("input[name=password]").value ;
+		var isValid = 1 ;
+		if(emailV = email.match(/[\w\d\._-]+@[\w\d-]+\.[\w\.]+/)){
+			if(emailV[0] != email) isValid = 0, alert("email") ;
+		}else isValid = 0, alert("email") ;
+		if(nameV = name.match(/[\w ]+/)){
+			if(nameV[0] != name) isValid = 0 , alert("name");
+		}else isValid = 0 , alert("name");	
+		if(passwordV = password.match(/([^\s]| ){8,}/)){
+			if(passwordV[0] != password) isValid = 0 , alert("password");
+		}else isValid = 0 , alert("password");			
+		if(!isValid){
+			alert("Invalid") ;
+		}else alert("Everything Valid now.") ;
+	}
+</script>	
+</body>
+</html>

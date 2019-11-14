@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function validate(){
+			var x=document.getElementById("as").value;
+			var y=document.getElementById("pass").value;
+			var z=document.getElementById("repass").value;
+			var p=document.getElementById("phone").value;
+			var a=document.getElementById("email").value;
+
+			if (x==""){
+				alert("invalid");
+			}
+			if (!isNaN(x)) {
+				alert("only number not accepted");
+			}
+			if (y!==z) {
+				alert("password not matched");
+			}
+			if (p.length != 10) {
+				alert("phone must be 10 digits");
+			}
+			if (a.indexOf('@')<=0) {
+				alert("@cant be at first!");
+			}
+			if ((a.charAt(a.length-4) != '.') || (a.charAt(a.length-3) != '.' )){
+				alert(". not at its position");
+			}
+			
+		}
+	</script>
+	<form onsubmit=" return validate()">
+		input:<input type="text" name="" id="as">
+		<br>
+		password:<input type="password" name="" id="pass">
+		<br>
+		re-password:<input type="password" name="" id="repass">
+
+		<br>
+		phone no:<input type="number" name="" id="phone">
+		<br>
+		email:<input type="text" name="" id="email">
+		<br>
+		<input type="submit" name="" value="submit">
+
+	</form>
+
+</body>
+</html>
+

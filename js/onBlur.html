@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>on blur</title>
+</head>
+<body>
+<form id='form'>
+	<input type="text" name="field" id='field' placeholder='Enter a number'><br><br>
+	<!-- <input type="submit" name=""> -->
+</form>
+<script type="text/javascript">
+	var field = document.getElementById("field") ;
+	field.addEventListener("blur", function(){
+		// alert("blurred") ;
+		var value = field.value ;
+		if(value.length == 0){
+			alert("Error: empty input field") ;
+		}
+		for(var i = 0 ; i < value.length ; i++){
+			console.log(value.charAt(i) + parseInt(value.charAt(i))) ;
+			if(isNaN(parseInt(value.charAt(i)))){
+				alert("Non numeric values found in Number.") ;
+				break ;
+			}
+		}
+
+	})
+</script>
+</body>
+</html>
